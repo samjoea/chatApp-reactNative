@@ -14,6 +14,8 @@ const firebaseConfig = {
    ...Constants.manifest.extra
 };
 
+// console.log(JSON.stringify({...Constants.manifest.extra}));
+
 //initializing firebase
 
 initializeApp(firebaseConfig);

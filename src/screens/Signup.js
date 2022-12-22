@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, TextInput, Image, SafeAreaView } from 'react-native';
 import React, { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../config/firebase';
 import img from '../../assets/backImage.png';
 
@@ -8,11 +8,11 @@ const Signup = ({ navigation }) => {
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
 
-   const handleLogin = async () => {
+   const handleSignup = async () => {
       if (email && password) {
          try { 
-            await signInWithEmailAndPassword(auth, email, password);
-            console.log("Login successful")
+            await createUserWithEmailAndPassword(auth, email, password);
+            console.log("Sign Upsuccessful")
          } catch (error) {
             console.log(error);
          }
@@ -28,7 +28,6 @@ const Signup = ({ navigation }) => {
                placeholder='Enter Email'
                autoCapitalize='none'
                keyboardType='email-address'
-               autoFocus={true}
                value={email}
                onChangeText={(text) => setEmail(text)}
                className=' w-full h-[58px] rounded-[10px] pl-[20px] text-gray-500 font-bold bg-[#F6F7F8]'
@@ -44,8 +43,10 @@ const Signup = ({ navigation }) => {
                className=' w-full h-[58px] pl-[20px] font-bold text-gray-500 rounded-[10px] bg-[#F6F7F8]'
             />
             {/* Button */}
-            <TouchableOpacity className=' bg-[#f57c00] justify-center items-center rounded-[10px] w-full h-[58px]'>
-               <Text className=' font-bold text-gray-50 text-lg'>Log In</Text>
+            <TouchableOpacity
+               onPress={() => handleSignup()}
+               className=' bg-[#f57c00] justify-center items-center rounded-[10px] w-full h-[58px]'>
+               <Text className=' font-bold text-gray-50 text-lg'>Sign Up</Text>
             </TouchableOpacity>
             <View className=' flex-row'>
                <Text className=' text-gray-400 font-bold'>Don't have an account? </Text>

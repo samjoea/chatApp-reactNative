@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../config/firebase';
 import img from '../../assets/backImage.png';
-import Constants from 'expo-constants';
 
 const Login = ({ navigation }) => {
    const [email, setEmail] = useState('');
@@ -45,7 +44,9 @@ const Login = ({ navigation }) => {
                className=' w-full h-[58px] pl-[20px] font-bold text-gray-500 rounded-[10px] bg-[#F6F7F8]'
             />
             {/* Button */}
-            <TouchableOpacity className=' bg-[#f57c00] justify-center items-center rounded-[10px] w-full h-[58px]'>
+            <TouchableOpacity
+               onPress={() => handleLogin()}
+               className=' bg-[#f57c00] justify-center items-center rounded-[10px] w-full h-[58px]'>
                <Text className=' font-bold text-gray-50 text-lg'>Log In</Text>
             </TouchableOpacity>
             <View className=' flex-row'>

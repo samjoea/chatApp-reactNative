@@ -5,8 +5,8 @@ import NavigationStack from './src/screens/NavigationStack';
 
 const App = () => {
   return (
-    <SafeAreaView className=' h-full'>
-      <StatusBar style={{backgroundColor: 'red'}} />
+    <SafeAreaView className=' h-full px-1'>
+      {/* <StatusBar /> */}
       <AuthUserProvider>
         <NavigationStack />
       </AuthUserProvider>

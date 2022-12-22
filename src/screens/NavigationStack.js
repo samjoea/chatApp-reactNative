@@ -14,9 +14,19 @@ const Stack = createStackNavigator();
 
 const ChatStack = () => {
    return (
-      <Stack.Navigator screenOptions={{headerShown: false}} defaultScreenOptions='Home'>
-         <Stack.Screen name='Chat' component={Chat} />
+      <Stack.Navigator screenOptions={{
+         headerTitleAlign: 'center',
+         cardStyle: {backgroundColor: 'white'},
+         headerStyle: {
+            borderBottomColor: 'lightgray',
+            borderBottomWidth: 2,
+            shadowColor: 'orange',
+            elevation: 10,
+         },
+         headerTitleStyle: { color: 'orange', fontSize: 35 }
+      }}>
          <Stack.Screen name='Home' component={Home} />
+         <Stack.Screen name='Chat' component={Chat} />
       </Stack.Navigator>
    )
 }
@@ -58,10 +68,7 @@ const NavigationStack = () => {
   return (
    <NavigationContainer>
       {
-         user ? 
-         <ChatStack /> 
-         : 
-         <AuthStack />
+         user ? <ChatStack /> : <AuthStack />
       }
    </NavigationContainer>
   )
